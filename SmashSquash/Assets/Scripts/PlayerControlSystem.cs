@@ -10,21 +10,32 @@ public class PlayerControlSystem : MonoBehaviour
 {
     private float beganTime = 0f;   //點擊開始的時間
     private float interval = 0f;    //間隔的時間
-    private float swipeMagnitude = 120f;    //滑動的標準
+    public float swipeMagnitude = 120f;    //滑動的標準
 
     private Vector2 startPos = Vector2.zero;    //點擊初始點
     private Vector2 endPos = Vector2.zero;  //點擊結束點
     private Vector2 direction = Vector2.zero;   //紀錄滑動的方向
 
+    private GameObject controlUnit; //控制中的單位
+
+    //測試資料區
     public UnitBehavior unit;   //測試Unit
+    public Vector2 DirMinRange, DirMaxRange;    //測試向量的區間    
 
     private void Start()
     {
-        unit.InitUnit();    
+        //unit.InitUnit();   //測試中 用於初始化unit 
     }
 
     void Update()
     {
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            Vector2 testDir = Vector2.zero;
+            testDir.x = Random.Range(DirMinRange.x, DirMaxRange.x);
+            testDir.y = Random.Range(DirMinRange.y, DirMaxRange.y);
+            Swipe(testDir);
+        }
         TouchDetect();
     }
 
@@ -80,15 +91,25 @@ public class PlayerControlSystem : MonoBehaviour
         }
     }
 
+    //手指滑動後的行為
     private void Swipe(Vector2 _direction)
     {
-        //判斷滑動距離
-        if(_direction.magnitude > swipeMagnitude)
+        Vector2 shootingDir = -_direction;  //射擊方向和拉動方向 相反
+
+        //判斷滑動距離 且 存在控制物體
+        if(shootingDir.magnitude > swipeMagnitude && controlUnit != null)
         {
             //滑動
-            Debug.Log("Swipe");
+            Debug.Log(shootingDir);
 
-            unit.ShootUnit(-_direction);
+            //unit.ShootUnit(shootingDir); 測試
+            controlUnit.GetComponent<UnitBehavior>().ShootUnit(shootingDir);    //彈射單位出去
         }
+    }
+
+    //更換控制的單位
+    public void ChangeControlUnit(GameObject gameObject)
+    {
+        controlUnit = gameObject; 
     }
 }
