@@ -3,7 +3,8 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - wall
   layers:
   - Default
   - TransparentFX
@@ -13,11 +14,11 @@ TagManager:
   - UI
   - 
   - 
-  - Wall
+  - 
   - BackGround
+  - Wall
   - 
-  - 
-  - 
+  - Game
   - 
   - 
   - 
@@ -40,4 +41,10 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Maps
+    uniqueID: 1157011861
+    locked: 0
+  - name: Game
+    uniqueID: 1897204511
     locked: 0
