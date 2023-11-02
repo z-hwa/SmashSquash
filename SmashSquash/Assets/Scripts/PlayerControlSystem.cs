@@ -100,7 +100,7 @@ public class PlayerControlSystem : MonoBehaviour
         if(shootingDir.magnitude > swipeMagnitude && controlUnit != null)
         {
             //滑動
-            Debug.Log(shootingDir);
+            //Debug.Log("shooting dir is" + shootingDir);
 
             //unit.ShootUnit(shootingDir); 測試
             controlUnit.GetComponent<UnitBehavior>().ShootUnit(shootingDir);    //彈射單位出去

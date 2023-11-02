@@ -29,10 +29,10 @@ public class BattleSystem : MonoBehaviour
         {
             unit[i] = Instantiate(unitPrefab, unitInitPoint.position, Quaternion.identity);//生成遊戲單位實體 放進Unit
             unit[i].GetComponent<UnitBehavior>().InitUnit();//遊戲單位實體初始化
-
-            //初始化cameraSystem, PlayerSystem
-            playerControlSystem.ChangeControlUnit(unit[i]);
-            cameraSystem.TargetChange(unit[i]);
         }
+
+        //初始化cameraSystem, PlayerSystem的鎖定單位為 index0
+        playerControlSystem.ChangeControlUnit(unit[0]);
+        cameraSystem.TargetChange(unit[0]);
     }
 }

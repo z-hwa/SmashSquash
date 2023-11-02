@@ -66,6 +66,7 @@
   <ItemGroup>
     <Compile Include="Assets\Scripts\BattleSystem.cs" />
     <Compile Include="Assets\Scripts\CameraSystem.cs" />
+    <Compile Include="Assets\Scripts\DefaultUnit.cs" />
     <Compile Include="Assets\Scripts\PlayerControlSystem.cs" />
     <Compile Include="Assets\Scripts\UnitBehavior.cs" />
     <Reference Include="UnityEngine">

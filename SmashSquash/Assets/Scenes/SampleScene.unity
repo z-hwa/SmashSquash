@@ -173,7 +173,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  unitNumber: 4
+  unitNumber: 1
   playerControlSystem: {fileID: 827373486}
   cameraSystem: {fileID: 1666847079}
 --- !u!1 &270811585

@@ -128,7 +128,7 @@ Rigidbody2D:
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 1
-  m_LinearDrag: 0
+  m_LinearDrag: 0.05
   m_AngularDrag: 0.05
   m_GravityScale: 0
   m_Material: {fileID: 0}
@@ -164,6 +164,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 554c4650879a91a4d961ae47c3884351, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  declineVelocityRate: 0.9
 --- !u!1 &9115141568820281226
 GameObject:
   m_ObjectHideFlags: 0
