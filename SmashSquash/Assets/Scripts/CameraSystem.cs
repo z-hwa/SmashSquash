@@ -2,12 +2,18 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-/* 攝影機操控腳本 負責跟蹤由battleSystem決定的當前腳色 */
+/* 攝影機操控腳本 負責跟蹤由battleSystem決定的當前腳色
+ * DEBUG:跟蹤抖動問題
+ */
 
 public class CameraSystem : MonoBehaviour
 {
-    public GameObject target;   //跟蹤的目標
-    public float smoothing; //平滑數值
+    public GameObject reporter; //記者
+    public float trackingError;   //跟蹤誤差
+    public float reporterSmoothing; //記者平滑跟蹤
+
+    public GameObject target;   //記者要跟蹤的目標
+    public float smoothing; //平滑數值 range[0, 1]
 
     //定義兩個位置 限制相機移動的邊界
     //獲取地圖參數 進行設置
@@ -16,16 +22,32 @@ public class CameraSystem : MonoBehaviour
 
     private void LateUpdate()
     {
-        CameraTracing();    //相機跟蹤
+        GoReporter();   //記者跟蹤
+        CameraTracing(reporter);    //相機跟蹤
+    }
+
+    //記者跟蹤目標的函數
+    private void GoReporter()
+    {
+
+        if (reporter != null && (reporter.transform.position - target.transform.position).magnitude > trackingError)
+        {
+            //舊方法 短距離移動 會造成記者移動不平滑
+            //Vector3 dir = (target.transform.position - reporter.transform.position).normalized;  //獲得前進方向
+            //reporter.transform.position += dir * reporterSpeed * Time.deltaTime;    //記者移動
+
+            //平滑移動
+            reporter.transform.position = Vector3.Lerp(reporter.transform.position, target.transform.position, reporterSmoothing);
+        }
     }
 
     //相機追蹤的函數
-    private void CameraTracing()
+    private void CameraTracing(GameObject cameraTarget)
     {
         //如果target存在
-        if (target != null)
+        if (cameraTarget != null && (transform.position - reporter.transform.position).magnitude > trackingError)
         {
-            Vector3 targetPos = target.transform.position;    //獲得target的位置
+            Vector3 targetPos = cameraTarget.transform.position;    //獲得reporter的位置
 
             //限制相機移動範圍
             targetPos.x = Mathf.Clamp(targetPos.x, minPosition.x, maxPosition.x);

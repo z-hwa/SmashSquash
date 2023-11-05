@@ -93,9 +93,10 @@ GameObject:
   - component: {fileID: 9115141568421658844}
   - component: {fileID: 9115141568421658835}
   - component: {fileID: 9115141568421658834}
+  - component: {fileID: 9133017623641433544}
   m_Layer: 0
   m_Name: Unit
-  m_TagString: Untagged
+  m_TagString: unit
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -164,7 +165,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 554c4650879a91a4d961ae47c3884351, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  declineVelocityRate: 0.9
+  nowState: 1
+--- !u!114 &9133017623641433544
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9115141568421658846}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c94be7d83442d70438665de53d2b91b0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  unitName: 
+  spiritGrade: 0
+  spiritControl: 
+  hp: 0
+  atk: 0
+  def: 0
 --- !u!1 &9115141568820281226
 GameObject:
   m_ObjectHideFlags: 0

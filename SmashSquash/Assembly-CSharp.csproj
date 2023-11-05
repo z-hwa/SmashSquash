@@ -66,9 +66,13 @@
   <ItemGroup>
     <Compile Include="Assets\Scripts\BattleSystem.cs" />
     <Compile Include="Assets\Scripts\CameraSystem.cs" />
-    <Compile Include="Assets\Scripts\DefaultUnit.cs" />
+    <Compile Include="Assets\Scripts\MapInfo.cs" />
+    <Compile Include="Assets\Scripts\MapSystem.cs" />
     <Compile Include="Assets\Scripts\PlayerControlSystem.cs" />
+    <Compile Include="Assets\Scripts\UnitAbout\A000_Default.cs" />
+    <Compile Include="Assets\Scripts\UnitAbout\A001_CloudGirl.cs" />
     <Compile Include="Assets\Scripts\UnitBehavior.cs" />
+    <Compile Include="Assets\Scripts\UnitData.cs" />
     <Reference Include="UnityEngine">
       <HintPath>D:/Program Files/Unity/Hub/Editor/2019.4.27f1/Editor/Data/Managed/UnityEngine/UnityEngine.dll</HintPath>
     </Reference>

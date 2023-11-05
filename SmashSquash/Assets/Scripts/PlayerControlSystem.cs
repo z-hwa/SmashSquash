@@ -10,22 +10,17 @@ public class PlayerControlSystem : MonoBehaviour
 {
     private float beganTime = 0f;   //點擊開始的時間
     private float interval = 0f;    //間隔的時間
-    public float swipeMagnitude = 120f;    //滑動的標準
+    public float swipeMagnitude = 120f;    //滑動力度的下限 (標準
 
     private Vector2 startPos = Vector2.zero;    //點擊初始點
     private Vector2 endPos = Vector2.zero;  //點擊結束點
     private Vector2 direction = Vector2.zero;   //紀錄滑動的方向
 
     private GameObject controlUnit; //控制中的單位
+    public bool manipulateAvailable = false;  //操控可用性
 
     //測試資料區
-    public UnitBehavior unit;   //測試Unit
-    public Vector2 DirMinRange, DirMaxRange;    //測試向量的區間    
-
-    private void Start()
-    {
-        //unit.InitUnit();   //測試中 用於初始化unit 
-    }
+    public Vector2 DirMinRange, DirMaxRange;    //測試向量的區間
 
     void Update()
     {
@@ -97,12 +92,9 @@ public class PlayerControlSystem : MonoBehaviour
         Vector2 shootingDir = -_direction;  //射擊方向和拉動方向 相反
 
         //判斷滑動距離 且 存在控制物體
-        if(shootingDir.magnitude > swipeMagnitude && controlUnit != null)
+        if(shootingDir.magnitude > swipeMagnitude && controlUnit != null && manipulateAvailable == true)
         {
-            //滑動
-            //Debug.Log("shooting dir is" + shootingDir);
-
-            //unit.ShootUnit(shootingDir); 測試
+            manipulateAvailable = false;    //完成操作 操控可用設為false
             controlUnit.GetComponent<UnitBehavior>().ShootUnit(shootingDir);    //彈射單位出去
         }
     }
@@ -111,5 +103,11 @@ public class PlayerControlSystem : MonoBehaviour
     public void ChangeControlUnit(GameObject gameObject)
     {
         controlUnit = gameObject; 
+    }
+
+    //初始化玩家操控系統
+    public void InitPlayerControlSystem()
+    {
+        manipulateAvailable = false;
     }
 }
