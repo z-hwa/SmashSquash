@@ -26,8 +26,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4575099947534223573}
   m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: -0.05, y: 6.86, z: 0}
-  m_LocalScale: {x: 0.32422525, y: 3.4648662, z: 1}
+  m_LocalPosition: {x: -2.513, y: 10.721, z: 0}
+  m_LocalScale: {x: 0.41175658, y: 4.643789, z: 1}
   m_Children: []
   m_Father: {fileID: 4575099948847948832}
   m_RootOrder: 2
@@ -133,8 +133,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4575099947725386787}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: -0.04, y: 0.158, z: 0}
+  m_LocalScale: {x: 1.3457048, y: 1.2816297, z: 1}
   m_Children: []
   m_Father: {fileID: 4575099949309665638}
   m_RootOrder: 0
@@ -247,8 +247,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4575099948008540361}
   m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: -0, y: -6.78, z: 0}
-  m_LocalScale: {x: 0.32422525, y: 3.4648662, z: 1}
+  m_LocalPosition: {x: -2.446, y: -6.601, z: 0}
+  m_LocalScale: {x: 0.41175658, y: 4.643789, z: 1}
   m_Children: []
   m_Father: {fileID: 4575099948847948832}
   m_RootOrder: 3
@@ -355,8 +355,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4575099948284849842}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -6.55, y: 0.135, z: 0}
-  m_LocalScale: {x: 0.32422525, y: 3.4648662, z: 1}
+  m_LocalPosition: {x: -11.225, y: 2.181, z: 0}
+  m_LocalScale: {x: 0.43454286, y: 4.4002786, z: 1}
   m_Children: []
   m_Father: {fileID: 4575099948847948832}
   m_RootOrder: 0
@@ -487,9 +487,15 @@ MonoBehaviour:
   enemy:
   - {fileID: 4684159089851753614}
   - {fileID: 4684159089905368846}
-  enemyData:
-  - {fileID: 6171322436579717025}
-  - {fileID: 8256476563744313062}
+  unitDatas:
+  - {fileID: 0}
+  - {fileID: 0}
+  unitBehaviors:
+  - {fileID: 0}
+  - {fileID: 0}
+  originalData:
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!1 &4575099948766258948
 GameObject:
   m_ObjectHideFlags: 0
@@ -516,8 +522,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4575099948766258948}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 6.47, y: 0.135, z: 0}
-  m_LocalScale: {x: 0.32422525, y: 3.4648662, z: 1}
+  m_LocalPosition: {x: 6.225, y: 2.181, z: 0}
+  m_LocalScale: {x: 0.43454286, y: 4.4002786, z: 1}
   m_Children: []
   m_Father: {fileID: 4575099948847948832}
   m_RootOrder: 1
@@ -622,7 +628,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4575099948847948835}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 2.45, y: -1.98, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4575099948284849843}
@@ -677,7 +683,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   unitName: Cloud Girl
   spiritGrade: 112
-  spiritControl: a+
+  spiritControl: 0
   hp: 15444
   atk: 4251
   def: 2310
@@ -695,7 +701,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   unitName: Cloud Girl
   spiritGrade: 112
-  spiritControl: a+
+  spiritControl: 0
   hp: 15444
   atk: 4251
   def: 2310
@@ -766,6 +772,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Unit
       objectReference: {fileID: 0}
+    - target: {fileID: 9115141568421658846, guid: df87e0b1e70a84e428eb28b1ccddd4a5,
+        type: 3}
+      propertyPath: m_TagString
+      value: enemy
+      objectReference: {fileID: 0}
     - target: {fileID: 9133017623641433544, guid: df87e0b1e70a84e428eb28b1ccddd4a5,
         type: 3}
       propertyPath: hp
@@ -794,7 +805,7 @@ PrefabInstance:
     - target: {fileID: 9133017623641433544, guid: df87e0b1e70a84e428eb28b1ccddd4a5,
         type: 3}
       propertyPath: spiritControl
-      value: a
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: df87e0b1e70a84e428eb28b1ccddd4a5, type: 3}
@@ -877,6 +888,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Unit (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 9115141568421658846, guid: df87e0b1e70a84e428eb28b1ccddd4a5,
+        type: 3}
+      propertyPath: m_TagString
+      value: enemy
+      objectReference: {fileID: 0}
     - target: {fileID: 9133017623641433544, guid: df87e0b1e70a84e428eb28b1ccddd4a5,
         type: 3}
       propertyPath: hp
@@ -905,7 +921,7 @@ PrefabInstance:
     - target: {fileID: 9133017623641433544, guid: df87e0b1e70a84e428eb28b1ccddd4a5,
         type: 3}
       propertyPath: spiritControl
-      value: a+
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: df87e0b1e70a84e428eb28b1ccddd4a5, type: 3}

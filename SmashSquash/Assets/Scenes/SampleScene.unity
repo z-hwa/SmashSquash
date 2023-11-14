@@ -198,10 +198,21 @@ MonoBehaviour:
   unitLineUp:
   - {fileID: 1382006076}
   mapIndex: 0
+  nowState: 0
   unitPrefab: {fileID: 9115141568421658846, guid: df87e0b1e70a84e428eb28b1ccddd4a5,
     type: 3}
   unitInitPoint: {fileID: 1867990666}
   unit:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  unitDatas:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  unitBehaviors:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
@@ -263,7 +274,9 @@ MonoBehaviour:
   mapInitPoint: {fileID: 1666951243}
   enemyNum: 0
   enemy: []
-  enemyData: []
+  enemyDatas: []
+  enemyBehaviors: []
+  originalData: []
 --- !u!1 &341020295
 GameObject:
   m_ObjectHideFlags: 0
@@ -331,7 +344,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 5
+  orthographic size: 9
   m_Depth: 0
   m_CullingMask:
     serializedVersion: 2
@@ -364,7 +377,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!81 &519420029
 AudioListener:
   m_ObjectHideFlags: 0
@@ -400,7 +413,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 5
+  orthographic size: 9.5
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -619,7 +632,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   unitName: Cloud Girl
   spiritGrade: 112
-  spiritControl: a+
+  spiritControl: 0
   hp: 15444
   atk: 4251
   def: 2310
@@ -658,7 +671,7 @@ Transform:
   - {fileID: 1026008035}
   - {fileID: 67995954}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1666847077
 GameObject:
@@ -771,77 +784,3 @@ Transform:
   m_Father: {fileID: 89665348}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1001 &4575099947458770402
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 4575099948637291480, guid: 8dbf9aaaa09519147ba2e4b4fbe07b71,
-        type: 3}
-      propertyPath: m_RootOrder
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4575099948637291480, guid: 8dbf9aaaa09519147ba2e4b4fbe07b71,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4575099948637291480, guid: 8dbf9aaaa09519147ba2e4b4fbe07b71,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4575099948637291480, guid: 8dbf9aaaa09519147ba2e4b4fbe07b71,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4575099948637291480, guid: 8dbf9aaaa09519147ba2e4b4fbe07b71,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4575099948637291480, guid: 8dbf9aaaa09519147ba2e4b4fbe07b71,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4575099948637291480, guid: 8dbf9aaaa09519147ba2e4b4fbe07b71,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4575099948637291480, guid: 8dbf9aaaa09519147ba2e4b4fbe07b71,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4575099948637291480, guid: 8dbf9aaaa09519147ba2e4b4fbe07b71,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4575099948637291480, guid: 8dbf9aaaa09519147ba2e4b4fbe07b71,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4575099948637291480, guid: 8dbf9aaaa09519147ba2e4b4fbe07b71,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4575099948637291483, guid: 8dbf9aaaa09519147ba2e4b4fbe07b71,
-        type: 3}
-      propertyPath: m_Name
-      value: Map_default
-      objectReference: {fileID: 0}
-    - target: {fileID: 4575099948637291483, guid: 8dbf9aaaa09519147ba2e4b4fbe07b71,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 8dbf9aaaa09519147ba2e4b4fbe07b71, type: 3}

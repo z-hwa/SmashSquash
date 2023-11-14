@@ -69,6 +69,7 @@
     <Compile Include="Assets\Scripts\MapInfo.cs" />
     <Compile Include="Assets\Scripts\MapSystem.cs" />
     <Compile Include="Assets\Scripts\PlayerControlSystem.cs" />
+    <Compile Include="Assets\Scripts\StateChart.cs" />
     <Compile Include="Assets\Scripts\UnitAbout\A000_Default.cs" />
     <Compile Include="Assets\Scripts\UnitAbout\A001_CloudGirl.cs" />
     <Compile Include="Assets\Scripts\UnitBehavior.cs" />

@@ -23,7 +23,7 @@ public class UnitBehavior : MonoBehaviour
     private float endVelocity = 0.25f; //下限速度(速度強度低於該數值 就停止
 
     private new Rigidbody2D rigidbody2D;    //該unit的鋼體
-    private Vector2 lastPoint;  //上一個點
+    private UnitData unitData;  //該unit的資料
     private Vector2 inVelocity; //進入碰撞前的速度向量
 
     private float lastRec = 0f; //上一次紀錄速度的時間
@@ -48,6 +48,7 @@ public class UnitBehavior : MonoBehaviour
             lastVec = rigidbody2D.velocity.magnitude;
         }
 
+        
         //移動 且 在減速中 那速度小於一定程度 直接停止
         if(nowState == State.Moving && lastVec > rigidbody2D.velocity.magnitude && rigidbody2D.velocity.magnitude < endVelocity)
         {
@@ -59,7 +60,9 @@ public class UnitBehavior : MonoBehaviour
     //初始化 這個Unit的物理性質
     public void InitUnitBehavior()
     {
+        //component
         rigidbody2D = GetComponent<Rigidbody2D>();  //獲得鋼體
+        unitData = GetComponent<UnitData>();    //獲取這個單位的資料
         
         //賦予單位 質量與阻尼(之後從單位資料獲取
         rigidbody2D.mass = defaultMass;
@@ -73,6 +76,9 @@ public class UnitBehavior : MonoBehaviour
         lastVec = 0f;
     }
 
+    //根據力量 將單位射擊出去
+    //只有發射的時候 才會使用
+    //反彈 則是直接賦予unit速度
     public void ShootUnit(Vector2 _force)
     {
         rigidbody2D.AddForce(_force);   //施加 力的向量
@@ -80,32 +86,32 @@ public class UnitBehavior : MonoBehaviour
     }
 
     //與牆壁的反彈檢測
-    //bug 反彈力度不對
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if(collision.gameObject.tag == "wall")
+        Rigidbody2D rigidOfColli = collision.gameObject.GetComponent<Rigidbody2D>();    //獲取被撞者的rigid
+
+        if (collision.gameObject.tag == "wall")
         {
             //傳入進入向量、法向量 計算射出向量
             Vector2 reflexAngle = Vector2.Reflect(inVelocity, collision.GetContact(0).normal);
 
             rigidbody2D.velocity = reflexAngle.normalized * inVelocity.magnitude;   //施加新的速度
         }
-        else if (collision.gameObject.tag == "unit")
+        else if ((collision.gameObject.tag == "unit" || collision.gameObject.tag == "enemy")
+            && inVelocity.magnitude > rigidOfColli.velocity.magnitude)
         {
+            //計算碰撞後新速度的強度
+            float newMagnitude = inVelocity.magnitude - rigidOfColli.velocity.magnitude;    //計算新的速度強度
+
             //傳入進入向量、法向量 計算射出向量
             Vector2 reflexAngle = Vector2.Reflect(inVelocity, collision.GetContact(0).normal);
-            rigidbody2D.velocity = reflexAngle.normalized * inVelocity.magnitude;   //施加新的速度
+            rigidbody2D.velocity = reflexAngle.normalized * newMagnitude;   //施加新的速度
 
-            collision.gameObject.GetComponent<Rigidbody2D>().velocity = inVelocity;
+            rigidOfColli.velocity = inVelocity.normalized * newMagnitude; //對被撞擊的物體 施加新的速度
 
-            //StartCoroutine(WaitHitting(reflexAngle));
+            //雙方標籤不同 才扣血 且速度慢的會被攻擊
+            if(gameObject.tag != collision.gameObject.tag)
+                unitData.SmashSettlement(collision.gameObject);  //碰撞結算
         }
-    }
-
-    IEnumerator WaitHitting(Vector2 reflexAngle)
-    {
-        yield return new WaitForSeconds(0.0001f);
-
-        rigidbody2D.velocity = reflexAngle.normalized * inVelocity.magnitude;   //施加新的速度
     }
 }

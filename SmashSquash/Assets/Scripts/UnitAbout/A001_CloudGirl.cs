@@ -7,7 +7,7 @@ public class A001_CloudGirl : A000_Default
     //單位初始的資料
     private string unitNameDefault = "Cloud Girl";
     private int spiritGradeDefault = 112;
-    private string spiritControlDefault = "a+";
+    private SpiritControlStandard spiritControlDefault = SpiritControlStandard.Ap;
 
     private int hpDefault = 15444;
     private int atkDefault = 4251;

@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 
 /* 所有unit的模板 */
-
 public class A000_Default: MonoBehaviour
 {
     /* 使用資料區(public
@@ -13,7 +12,7 @@ public class A000_Default: MonoBehaviour
 
     public string unitName; //名字
     public int spiritGrade; //靈力等級
-    public string spiritControl;    //靈力控制階級
+    public SpiritControlStandard spiritControl; //靈力控制階級
 
     public int hp;  //生命
     public int atk; //攻擊
@@ -26,7 +25,7 @@ public class A000_Default: MonoBehaviour
     {
         this.unitName = "unitName";
         this.spiritGrade = 1;
-        this.spiritControl = "a";
+        this.spiritControl = SpiritControlStandard.A;
 
         this.hp = 1;
         this.atk = 1;

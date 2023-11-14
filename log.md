@@ -17,4 +17,11 @@
 	Combat round logic completed  
 		start->player->enemy->...  
 	Enemy default agent is completed  
-		which wrote in unit templete A000  
+		which wrote in unit templete A000 
+2023.11.14  
+	Improve picture quality of unit  
+		change unit sprite from square to circle  
+		using medibang cut picture  
+	finish isPlayerWin, isPlayerLose judge  
+		and switch unit on turn logic are finished  
+		check unit's gameobject is active?  
