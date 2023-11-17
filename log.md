@@ -24,4 +24,6 @@
 		using medibang cut picture  
 	finish isPlayerWin, isPlayerLose judge  
 		and switch unit on turn logic are finished  
-		check unit's gameobject is active?  
+		check unit's gameobject is active? 
+2023.11.18  
+	main page design 1st edition finish  
