@@ -5,8 +5,8 @@
 2023.11.3  
 	debug: rebound magnitude fixed to right situation  
 	setting mass and drag of rigid2D of unit  
-2023.11.4  
-	deal with unit data class and loading unit data in pre-combat phase  
+2023.11.4   
+	deal with unit data class and loading unit data in pre-combat phase   
 2023.11.5  
 	optimize camera tracing  
 		Add recorder to tracing target  
@@ -17,13 +17,17 @@
 	Combat round logic completed  
 		start->player->enemy->...  
 	Enemy default agent is completed  
-		which wrote in unit templete A000 
+		which wrote in unit templete A000  
 2023.11.14  
 	Improve picture quality of unit  
 		change unit sprite from square to circle  
 		using medibang cut picture  
 	finish isPlayerWin, isPlayerLose judge  
 		and switch unit on turn logic are finished  
-		check unit's gameobject is active? 
+		check unit's gameobject is active  
 2023.11.18  
 	main page design 1st edition finish  
+2023.11.22  
+	create chinese font in unity and finish mainPage, package, summon, other buttom  
+	set screen size with max portrait size  
+		has best resolution  
